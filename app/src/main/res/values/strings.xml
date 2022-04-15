@@ -2,4 +2,8 @@
     <string name="app_name">CryptoLyst</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="llegada_user">Bienvenido a CryptoLyst\n Por favor Introduce tu nombre</string>
+    <string name="introduce_tu_nombre">Introduce tu nombre</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="mensaje_bienvenida">Todo listo!(*^▽^*)\n Esperamos que disfrutes toda la ayuda que CryptoLyst te brindará</string>
 </resources>
