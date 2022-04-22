@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ClienteRetrofit {
 
     companion object{
-        private const val base_url = "https://api.coincap.io/v2/"
+        const val base_url = "https://api.coincap.io/v2/"
 
-        fun getInstance() : CoinsService
+        fun getInstance(url:String) : CoinsService
         {
             val retrofit = Retrofit.Builder()
                 .baseUrl(base_url)
