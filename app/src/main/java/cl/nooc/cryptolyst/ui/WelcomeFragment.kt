@@ -22,10 +22,15 @@ class WelcomeFragment : Fragment() {
 
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
 
+        val nombre = arguments?.getString("nom")
+
+        val bundle = Bundle()
+        bundle.putString("nom", nombre)
+
         Handler(Looper.getMainLooper()).postDelayed({
             Navigation.findNavController(requireView())
-                .navigate(R.id.action_welcomeFragment_to_homeFragment)
-        }, 5000)
+                .navigate(R.id.action_welcomeFragment_to_homeFragment, bundle)
+        }, 3500)
         return binding.root
     }
 
