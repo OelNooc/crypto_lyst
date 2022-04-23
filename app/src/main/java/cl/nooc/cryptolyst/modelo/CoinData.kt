@@ -8,15 +8,15 @@ import androidx.room.PrimaryKey
 data class CoinData(
     @ColumnInfo(name = "ChangePercent24hr")
     val changePercent24Hr: String,
-    @ColumnInfo(name = "Explorer")
-    val explorer: String,
+    @ColumnInfo(name = "Explorer", defaultValue = "NULL")
+    val explorer: String?,
     @ColumnInfo(name = "Id")
     @PrimaryKey
     val id: String,
     @ColumnInfo(name = "MarketCapUsd")
     val marketCapUsd: String,
-    @ColumnInfo(name = "MaxSupply")
-    val maxSupply: String,
+    @ColumnInfo(name = "MaxSupply", defaultValue = "NULL")
+    val maxSupply: String?,
     @ColumnInfo(name = "Name")
     val name: String,
     @ColumnInfo(name = "PriceUsd")
@@ -29,6 +29,6 @@ data class CoinData(
     val symbol: String,
     @ColumnInfo(name = "VolumeUsd24Hr")
     val volumeUsd24Hr: String,
-    @ColumnInfo(name = "VWap24Hr")
-    val vwap24Hr: String
+    @ColumnInfo(name = "VWap24Hr", defaultValue = "NULL")
+    val vwap24Hr: String?
 )

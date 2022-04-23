@@ -6,13 +6,13 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import cl.nooc.cryptolyst.modelo.CoinData
-import cl.nooc.cryptolyst.modelo.Coins
+
 
 @Dao
 interface CoinDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun agregar(coins: Coins)
+    fun agregar(coins: List<CoinData>)
 
     @Query("select Id, Name, PriceUsd," +
             " ChangePercent24hr, Explorer, MarketCapUsd, MaxSupply, Rank, Supply," +

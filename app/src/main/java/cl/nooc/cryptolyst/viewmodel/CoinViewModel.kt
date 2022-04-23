@@ -31,7 +31,7 @@ class CoinViewModel (application: Application) : AndroidViewModel(application) {
                 clienteRepo.getListaCoins().enqueue(object: Callback<Coins>{
                     override fun onResponse(call: Call<Coins>, response: Response<Coins>) {
                         response.body().let {
-                            coinRepo.agregar(it!!)
+                            coinRepo.agregar(it!!.data)
                         }
                     }
 

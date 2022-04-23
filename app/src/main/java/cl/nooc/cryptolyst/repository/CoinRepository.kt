@@ -13,7 +13,7 @@ class CoinRepository(var context: Context) {
 
     private val db = CoinDataBase.getInstancia(context)
 
-    fun agregar(coin: Coins){
+    fun agregar(coin: List<CoinData>){
         CoroutineScope(Dispatchers.IO).launch {
             db.coinDao().agregar(coin)
         }
