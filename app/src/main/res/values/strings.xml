@@ -7,4 +7,7 @@
     <string name="ingresar">Ingresar</string>
     <string name="mensaje_bienvenida">Todo listo!(*^▽^*)\n Esperamos que disfrutes toda la ayuda que CryptoLyst te brindará</string>
     <string name="bienvenido">Bienvenido</string>
+    <string name="supply">Supply</string>
+    <string name="market_cap">Market Cap</string>
+    <string name="price">Price</string>
 </resources>

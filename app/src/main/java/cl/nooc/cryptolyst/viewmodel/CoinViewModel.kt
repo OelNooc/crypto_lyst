@@ -33,6 +33,22 @@ class CoinViewModel (application: Application) : AndroidViewModel(application) {
         })
     }
 
+    fun getDetail(id:String){
+        val service = ClienteRetrofit.getInstance(ClienteRetrofit.base_url)
+        service.getCoinDetail(id).enqueue(object: Callback<CoinData>{
+            override fun onResponse(call: Call<CoinData>, response: Response<CoinData>) {
+                response.body().let {
+                    coin.postValue(it)
+                }
+                Log.e("COIN",response.toString())
+            }
+
+            override fun onFailure(call: Call<CoinData>, t: Throwable) {
+                Log.e("CALL",t.message.toString())
+            }
+        })
+    }
+
     fun updateCoin(coin:CoinData)
     {
         this.coin.value = coin
