@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
 
         adapter.setMiListener(object: CoinsAdapter.MiListener{
             override fun miOnClick(coin: CoinData) {
-                viewModel.updateCoin(coin)
+                viewModel.updateCoin(coin.id)
                 Navigation.findNavController(requireView())
                     .navigate(R.id.action_homeFragment_to_detailFragment)
             }
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.coins.observe(viewLifecycleOwner){
-            adapter.updateData(it.data)
+            adapter.updateData(it)
         }
         return binding.root
     }
