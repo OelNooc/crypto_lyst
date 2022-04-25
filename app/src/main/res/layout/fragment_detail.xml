@@ -12,9 +12,9 @@
         android:background="@drawable/fondo">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="410dp"
-            android:layout_height="326dp"
+            android:id="@+id/ivDCoin"
+            android:layout_width="258dp"
+            android:layout_height="233dp"
             android:src="@drawable/cryptos"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,15 +27,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#75000000"
-            android:text="TextView"
             android:fontFamily="@font/secular_one"
-            android:textSize="18sp"
+            android:text="TextView"
             android:textColor="@color/white"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSym"
             app:layout_constraintVertical_bias="0.084" />
 
         <LinearLayout
@@ -51,13 +51,13 @@
             app:layout_constraintVertical_bias="0.060000002">
 
             <TextView
-                android:id="@+id/tvDDate"
+                android:id="@+id/tvDNPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/secular_one"
-                android:text="TextView"
+                android:text="@string/price"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -90,7 +90,7 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/secular_one"
-                android:text="TextView"
+                android:text="@string/supply"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -101,12 +101,13 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/secular_one"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#75000000"
@@ -124,7 +125,7 @@
                 android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/secular_one"
-                android:text="TextView"
+                android:text="@string/market_cap"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -139,5 +140,22 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:background="#6D000000"
+            android:fontFamily="sans-serif-black"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivDCoin"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

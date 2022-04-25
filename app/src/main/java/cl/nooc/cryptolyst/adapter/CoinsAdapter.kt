@@ -9,6 +9,8 @@ import cl.nooc.cryptolyst.databinding.CoinsLayoutBinding
 import cl.nooc.cryptolyst.modelo.CoinData
 import cl.nooc.cryptolyst.modelo.Coins
 import com.squareup.picasso.Picasso
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CustomViewHolder>() {
 
@@ -19,8 +21,8 @@ class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CustomViewHolder>() {
     {
         private val binding = CoinsLayoutBinding.bind(itemView)
 
-        fun getImage(symbol: String) =
-            "https://static.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png"
+        private fun getImage(symbol: String) =
+            "https://static.coincap.io/assets/icons/${symbol.lowercase(Locale.getDefault())}@2x.png"
 
         fun bindData(coin:CoinData)
         {
@@ -28,7 +30,7 @@ class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CustomViewHolder>() {
             {
                 Picasso.get().load(getImage(coin.symbol)).resize(300,300).into(ivCoin)
                 tvNameCoin.text = coin.name
-                tvPrecio.text = "USD $" + coin.priceUsd.subSequence(0,5)
+                tvPrecio.text = "USD $" + coin.priceUsd.subSequence(0,7)
                 itemView.setOnClickListener {
                     listener.miOnClick(coin)
                 }
