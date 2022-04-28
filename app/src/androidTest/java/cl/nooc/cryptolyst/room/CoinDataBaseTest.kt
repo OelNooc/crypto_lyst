@@ -80,7 +80,8 @@ class CoinDataBaseTest {
         )
         var lista = ArrayList<CoinData>()
         lista.add(coinData)
+        dao.agregar(lista)
         val listaTest = dao.listar().getOrAwaitValue()
-        Truth.assertThat(lista[0].id).isEqualTo("bitcoin")
+        Truth.assertThat(listaTest[0].id).isEqualTo("bitcoin")
     }
 }
