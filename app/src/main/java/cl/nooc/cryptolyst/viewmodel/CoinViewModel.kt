@@ -23,6 +23,7 @@ class CoinViewModel (application: Application) : AndroidViewModel(application) {
 
     val coins = coinRepo.listar()
     val coin = MutableLiveData<CoinData>()
+    val filtro = MutableLiveData<String>()
 
     fun getData()
     {
