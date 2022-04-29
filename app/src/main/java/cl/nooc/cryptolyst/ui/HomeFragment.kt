@@ -2,13 +2,13 @@ package cl.nooc.cryptolyst.ui
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import cl.nooc.cryptolyst.MainActivity
 import cl.nooc.cryptolyst.R
 import cl.nooc.cryptolyst.adapter.CoinsAdapter
 import cl.nooc.cryptolyst.databinding.FragmentHomeBinding
@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     ): View {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
 
         val user = arguments?.getString("nom")
         sharedPreferences = requireActivity().
@@ -49,7 +50,38 @@ class HomeFragment : Fragment() {
         viewModel.coins.observe(viewLifecycleOwner){
             adapter.updateData(it)
         }
+
+        viewModel.filtro.observe(viewLifecycleOwner){
+            adapter.updateData(viewModel.coins.value!!.filter{
+                    coin -> coin.name.contains(it, true)})
+        }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as AppCompatActivity).supportActionBar?.title = "CryptoMonedas"
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        inflater.inflate(R.menu.search, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.filtro.value = query
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if(newText!!.isEmpty())
+                {
+                    viewModel.filtro.value = ""
+                }
+                return false
+            }
+        })
     }
 
 }
