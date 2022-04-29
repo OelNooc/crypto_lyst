@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-import cl.nooc.cryptolyst.MainActivity
 import cl.nooc.cryptolyst.R
 import cl.nooc.cryptolyst.adapter.CoinsAdapter
 import cl.nooc.cryptolyst.databinding.FragmentHomeBinding
@@ -83,5 +82,4 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
 }
